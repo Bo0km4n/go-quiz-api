@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/KastuyaKawabe/go-quiz-api/router"
 	"github.com/KatsuyaKawabe/go-quiz-api/db"
+	"github.com/KatsuyaKawabe/go-quiz-api/router"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )
@@ -25,9 +25,7 @@ func ListenAPI() {
 
 	api.HandleMethodNotAllowed = true
 
-	router.V2(api)
-	router.HealthCheck(api)
-
+	router.V1(api)
 	db.SetupDB()
 	api.Run(":" + viper.GetString("api.port"))
 }

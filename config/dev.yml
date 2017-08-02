@@ -2,3 +2,6 @@ mongo:
     host: "localhost"
     port: "27017"
     db: "quiz_ios"
+
+api:
+    port: 8099

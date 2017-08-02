@@ -15,10 +15,9 @@ func SetupDB() {
 	}
 
 	HOST := viper.GetString("mongo.host")
-	PORT := viper.GetString("mongo.port")
 	DATABASE := viper.GetString("mongo.db")
 
-	session, _ := mgo.Dial(fmt.Sprintf("mongodb://%s"))
+	session, _ := mgo.Dial(fmt.Sprintf("mongodb://%s", HOST))
 	defer session.Close()
-	DB = session.DB("quiz_ios")
+	DB = session.DB(DATABASE)
 }
