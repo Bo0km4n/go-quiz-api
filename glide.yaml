@@ -1,0 +1,13 @@
+package: github.com/KatsuyaKawabe/go-quiz-api
+import:
+- package: github.com/3-shake/reckoner-web-api
+  subpackages:
+  - db
+  - middlewares
+  - router
+- package: github.com/gin-gonic/gin
+  version: ~1.2.0
+- package: github.com/spf13/viper
+- package: gopkg.in/mgo.v2
+  subpackages:
+  - bson
