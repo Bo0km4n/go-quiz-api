@@ -21,10 +21,11 @@ func init() {
 func ListenAPI() {
 	api := gin.New()
 	api.Use(gin.Recovery())
-
+	api.Use(gin.Logger())
 	api.HandleMethodNotAllowed = true
 
 	router.V1(api)
+	router.HealthCheck(api)
 	api.Run(":" + viper.GetString("api.port"))
 }
 

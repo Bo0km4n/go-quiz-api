@@ -21,3 +21,11 @@ func V1(app *gin.Engine) *gin.Engine {
 
 	return app
 }
+
+func HealthCheck(app *gin.Engine) *gin.Engine {
+	app.GET("/healthcheck", func(ctx *gin.Context) {
+		ctx.JSON(200, gin.H{"message": "ok"})
+	})
+
+	return app
+}
